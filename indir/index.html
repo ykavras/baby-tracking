@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bebeğim – Baby Tracker · İndir</title>
+  <meta name="description" content="Bebeğim – Baby Tracker: App Store ve Google Play'de ücretsiz." />
+  <script>
+    // Cihaza göre mağazaya yönlendirir; tanınmayan cihazda (bilgisayar) aşağıdaki iki buton kalır.
+    var ua = navigator.userAgent;
+    var ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+    var store = ios ? "https://apps.apple.com/app/id6781867516"
+      : /Android/.test(ua) ? "https://play.google.com/store/apps/details?id=com.aibabytracking&referrer=utm_source%3Dinstagram"
+      : null;
+    if (store) location.replace(store);
+  </script>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .stores { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+    .stores a {
+      flex: 1 1 200px; text-align: center; padding: 14px 18px; border-radius: 12px;
+      background: var(--primary); color: #fff; font-weight: 700;
+    }
+    .stores a:hover { text-decoration: none; opacity: .9; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site">
+      <div class="logo">🍼</div>
+      <div class="brand">Bebeğim – Baby Tracker</div>
+    </header>
+
+    <section class="card">
+      <h1>Bebeğim'i ücretsiz indir</h1>
+      <p>Telefonuna uygun mağazayı seç. / Pick your phone's store.</p>
+      <div class="stores">
+        <a href="https://apps.apple.com/app/id6781867516">App Store</a>
+        <a href="https://play.google.com/store/apps/details?id=com.aibabytracking&amp;referrer=utm_source%3Dinstagram">Google Play</a>
+      </div>
+    </section>
+
+    <footer>© 2026 Bebeğim – Baby Tracker</footer>
+  </div>
+</body>
+</html>
