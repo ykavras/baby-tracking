@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bebeğim – Baby Tracker · İndir</title>
+  <title>Bebeğim · İndir</title>
   <meta name="description" content="Bebeğim – Baby Tracker: App Store ve Google Play'de ücretsiz." />
+  <meta name="theme-color" content="#16181D" />
   <script>
-    // Cihaza göre mağazaya yönlendirir; tanınmayan cihazda (bilgisayar) aşağıdaki iki buton kalır.
+    // Cihaza göre mağazaya yönlendirir; tanınmayan cihaz (bilgisayar) sayfayı görür.
     var ua = navigator.userAgent;
     var ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
     var store = ios ? "https://apps.apple.com/app/id6781867516"
@@ -14,33 +15,55 @@
       : null;
     if (store) location.replace(store);
   </script>
-  <link rel="stylesheet" href="../styles.css" />
-  <style>
-    .stores { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
-    .stores a {
-      flex: 1 1 200px; text-align: center; padding: 14px 18px; border-radius: 12px;
-      background: var(--primary); color: #fff; font-weight: 700;
-    }
-    .stores a:hover { text-decoration: none; opacity: .9; }
-  </style>
+  <link rel="icon" href="../assets/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/download.css" />
 </head>
 <body>
+  <div class="bg" aria-hidden="true"></div>
   <div class="wrap">
-    <header class="site">
-      <div class="logo">🍼</div>
-      <div class="brand">Bebeğim – Baby Tracker</div>
+    <header class="top">
+      <div class="brand"><img src="../assets/icon.png" alt="" />Bebeğim</div>
+      <span class="pill">iPhone ve Android'de ücretsiz</span>
     </header>
 
-    <section class="card">
-      <h1>Bebeğim'i ücretsiz indir</h1>
-      <p>Telefonuna uygun mağazayı seç. / Pick your phone's store.</p>
-      <div class="stores">
-        <a href="https://apps.apple.com/app/id6781867516">App Store</a>
-        <a href="https://play.google.com/store/apps/details?id=com.aibabytracking&amp;referrer=utm_source%3Dinstagram">Google Play</a>
-      </div>
+    <main class="hero">
+      <section class="copy">
+        <h1>Bebeğinin günü,<br /> <span>tek bakışta.</span></h1>
+        <p class="lead">Emzirme, uyku ve bezi tek dokunuşla kaydet. Bu ay neler değişiyor, gelişim kitabında oku. Hepsini eşinle paylaş.</p>
+        <div class="stores">
+          <a class="store ios" href="https://apps.apple.com/app/id6781867516">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.1 1.72-3.11 1.8-3.16-.98-1.43-2.5-1.63-3.04-1.65-1.29-.13-2.52.76-3.18.76-.66 0-1.67-.74-2.75-.72-1.41.02-2.72.82-3.45 2.09-1.47 2.55-.38 6.33 1.06 8.4.7 1.01 1.53 2.15 2.62 2.11 1.05-.04 1.45-.68 2.72-.68 1.27 0 1.63.68 2.74.66 1.13-.02 1.85-1.03 2.54-2.05.8-1.17 1.13-2.3 1.15-2.36-.03-.01-2.2-.85-2.21-3.37zM14.3 6.43c.58-.7.97-1.68.86-2.65-.83.03-1.84.55-2.44 1.25-.53.62-1 1.62-.88 2.57.93.07 1.88-.47 2.46-1.17z"/></svg>
+            <span class="t"><small>App Store'dan</small><b>İndir</b></span>
+          </a>
+          <a class="store play" href="https://play.google.com/store/apps/details?id=com.aibabytracking&amp;referrer=utm_source%3Dinstagram">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 2.8c-.3.2-.5.6-.5 1.1v16.2c0 .5.2.9.5 1.1L14 12 5 2.8zm10.1 10.3 2.3 2.3-10.6 6 8.3-8.3zm0-2.2L6.8 2.6l10.6 6-2.3 2.3zm3.6-1.1 2.6 1.5c.7.4.7 1.1 0 1.5l-2.6 1.5-2.5-2.5 2.5-2z"/></svg>
+            <span class="t"><small>Google Play'den</small><b>İndir</b></span>
+          </a>
+        </div>
+        <div class="qr">
+          <img src="../assets/qr-indir.png" alt="Bu sayfanın QR kodu" />
+          <div class="t"><b>Bilgisayardasın?</b><span>Telefon kamerasıyla okut, doğru mağaza açılsın.</span></div>
+        </div>
+      </section>
+      <section class="phones" aria-label="Uygulama ekranları">
+        <div class="phone back"><img src="../assets/tr-book.jpg" alt="Gelişim kitabı ekranı" /></div>
+        <div class="phone front"><img src="../assets/tr-home.jpg" alt="Bugünün emzirme ve uyku özetiyle ana ekran" /></div>
+      </section>
+    </main>
+
+    <section class="features" aria-label="Özellikler">
+      <div class="feature"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></span><span class="t"><b>Emzirme, uyku, bez</b><span>Tek dokunuşla kayıt, arka planda çalışan sayaç.</span></span></div>
+      <div class="feature"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2zM22 4h-7a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h8z"/></svg></span><span class="t"><b>Ay ay gelişim kitabı</b><span>Bu ay neler değişiyor, kısa videolarla.</span></span></div>
+      <div class="feature"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.2a5 5 0 0 1 5.5 4.8"/></svg></span><span class="t"><b>Eşinle ortak takip</b><span>Her kaydı ikiniz de anında görürsünüz.</span></span></div>
     </section>
 
-    <footer>© 2026 Bebeğim – Baby Tracker</footer>
+    <footer>
+      <span>© 2026 Bebeğim – Baby Tracker</span>
+      <nav><a href="../privacy.html">Gizlilik</a><a href="../terms.html">Koşullar</a></nav>
+    </footer>
   </div>
 </body>
 </html>

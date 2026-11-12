@@ -1,0 +1,84 @@
+/* Store landing pages (/download, /indir). Ink + lemon brand; light palette follows the OS. */
+:root {
+  --lemon: #FFD23F; --ink: #16181D;
+  --bg: #16181D; --surface: #1F2229; --btn2: #1F2229; --text: #F5F2EA; --muted: #A9ADB6;
+  --line: #2E323B; --accent-text: #FFD23F; --halo: rgba(255,210,63,.10); --glow: rgba(255,210,63,.08);
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #FBF8F0; --surface: #FFFFFF; --btn2: #FFFFFF; --text: #16181D; --muted: #555A64;
+    --line: #E8E2D3; --accent-text: #16181D; --halo: rgba(255,210,63,.35); --glow: rgba(255,210,63,.22);
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh; background: var(--bg); color: var(--text);
+  font-family: 'Red Hat Display', system-ui, -apple-system, sans-serif; overflow-x: hidden;
+}
+a { color: inherit; }
+a:hover { opacity: .92; }
+.bg { position: fixed; inset: 0; pointer-events: none; overflow: hidden; }
+.bg::before, .bg::after { content: ""; position: absolute; border-radius: 50%; }
+.bg::before { right: -220px; top: -160px; width: 860px; height: 860px; border: 56px solid var(--halo); }
+.bg::after { right: 40px; top: 110px; width: 560px; height: 560px; background: var(--glow); }
+
+.wrap { position: relative; max-width: 1240px; margin: 0 auto; padding: 32px 40px 48px; display: flex; flex-direction: column; gap: 56px; }
+.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 12px; font-size: 20px; font-weight: 700; letter-spacing: -.01em; }
+.brand img { width: 44px; height: 44px; border-radius: 12px; display: block; }
+.pill { font-size: 14px; font-weight: 600; color: var(--muted); padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); }
+
+.hero { display: flex; flex-wrap: wrap; align-items: center; gap: 48px; }
+.copy { flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 28px; }
+h1 { margin: 0; font-size: 64px; line-height: 1.02; font-weight: 800; letter-spacing: -.03em; }
+h1 span { color: var(--accent-text); }
+.lead { margin: 0; font-size: 20px; line-height: 1.5; color: var(--muted); max-width: 480px; }
+
+.stores { display: flex; flex-wrap: wrap; gap: 12px; }
+.store { display: flex; align-items: center; gap: 12px; min-height: 60px; padding: 0 24px 0 18px; border-radius: 16px; text-decoration: none; }
+.store svg { flex: none; }
+.store .t { display: flex; flex-direction: column; line-height: 1.1; }
+.store small { font-size: 12px; font-weight: 600; }
+.store b { font-size: 20px; font-weight: 800; }
+.store.ios { background: var(--lemon); color: var(--ink); }
+.store.play { background: var(--btn2); color: var(--text); border: 1px solid var(--line); }
+.store.play small { color: var(--muted); }
+
+.qr { display: flex; align-items: center; gap: 16px; padding: 14px; border-radius: 20px; background: var(--surface); border: 1px solid var(--line); max-width: 420px; }
+.qr img { width: 96px; height: 96px; flex: none; border-radius: 12px; background: #fff; padding: 6px; image-rendering: pixelated; }
+.qr .t { display: flex; flex-direction: column; gap: 4px; }
+.qr b { font-size: 16px; }
+.qr span { font-size: 15px; line-height: 1.4; color: var(--muted); }
+
+.phones { flex: 1 1 520px; min-width: 0; display: flex; justify-content: center; align-items: flex-end; min-height: 640px; }
+.phone { border-radius: 46px; padding: 10px; background: #0B0C0F; position: relative; }
+.phone img { width: 100%; display: block; border-radius: 36px; }
+.phone.back { width: 270px; box-shadow: 0 30px 80px rgba(0,0,0,.35); transform: rotate(-6deg) translate(40px, 24px); }
+.phone.front { width: 290px; box-shadow: 0 40px 100px rgba(0,0,0,.45); z-index: 1; transform: translateY(-20px); }
+
+.features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.feature { display: flex; gap: 14px; align-items: flex-start; padding: 20px; border-radius: 20px; background: var(--surface); border: 1px solid var(--line); }
+.feature .ic { width: 44px; height: 44px; flex: none; border-radius: 12px; background: var(--lemon); color: var(--ink); display: flex; align-items: center; justify-content: center; }
+.feature .t { display: flex; flex-direction: column; gap: 4px; }
+.feature b { font-size: 17px; }
+.feature span:not(.ic) { font-size: 15px; line-height: 1.4; color: var(--muted); }
+
+footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 14px; color: var(--muted); }
+footer nav { display: flex; gap: 20px; }
+
+@media (max-width: 860px) {
+  .wrap { padding: 20px 20px 32px; gap: 28px; }
+  .pill, .qr, .phone.back { display: none; }
+  .brand { font-size: 17px; } .brand img { width: 36px; height: 36px; border-radius: 10px; }
+  .hero { flex-direction: column-reverse; gap: 24px; }
+  .copy { flex: none; gap: 16px; width: 100%; }
+  h1 { font-size: 32px; line-height: 1.1; letter-spacing: -.02em; }
+  h1 br { display: none; }
+  .lead { font-size: 16px; }
+  .stores { flex-direction: column; }
+  .store { justify-content: center; min-height: 56px; }
+  .phones { flex: none; min-height: 0; width: 100%; }
+  .phone.front { width: 240px; max-height: 360px; overflow: hidden; transform: none; border-radius: 40px; padding: 9px; }
+  .phone.front img { border-radius: 31px; }
+  .features { grid-template-columns: 1fr; }
+}
